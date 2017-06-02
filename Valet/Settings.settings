@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Valet" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Scott</Value>
+    </Setting>
+    <Setting Name="PostalCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">12345</Value>
+    </Setting>
+    <Setting Name="CountryCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">us</Value>
+    </Setting>
+    <Setting Name="TemperatureUnit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Farenheit</Value>
+    </Setting>
+    <Setting Name="VoiceName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CereVoice Sarah - English (England)</Value>
+    </Setting>
+    <Setting Name="VoiceGender" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Female</Value>
+    </Setting>
+    <Setting Name="VoiceRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="VoiceVolume" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
