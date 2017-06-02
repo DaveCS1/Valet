@@ -64,13 +64,13 @@ namespace Valet
                                                  (TemperatureUnit)Enum.Parse(typeof(TemperatureUnit),
                                                                              Settings.Default.TemperatureUnit));
 
-            _speechSynthesizer.Speak(GreetingBuilder.GetCurrentGreetingFor(Settings.Default.UserName));
+            _speechSynthesizer.SpeakAsync(GreetingBuilder.GetCurrentGreetingFor(Settings.Default.UserName));
 
-            _speechSynthesizer.Speak(string.Format("The current temperature is {0} degrees.",
-                                                   (int)weatherForecast.TemperatureCurrent));
-            _speechSynthesizer.Speak(string.Format("Today's low will be {0}, and the high will be {1}.",
-                                                   (int)weatherForecast.TemperatureMinimum,
-                                                   (int)weatherForecast.TemperatureMaximum));
+            _speechSynthesizer.SpeakAsync(string.Format("The current temperature is {0} degrees.",
+                                                        (int)weatherForecast.TemperatureCurrent));
+            _speechSynthesizer.SpeakAsync(string.Format("Today's low will be {0}, and the high will be {1}.",
+                                                        (int)weatherForecast.TemperatureMinimum,
+                                                        (int)weatherForecast.TemperatureMaximum));
         }
     }
 }
