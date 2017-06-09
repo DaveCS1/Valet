@@ -61,7 +61,7 @@ namespace Valet {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Farenheit")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fahrenheit")]
         public string TemperatureUnit {
             get {
                 return ((string)(this["TemperatureUnit"]));

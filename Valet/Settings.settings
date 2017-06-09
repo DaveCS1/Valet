@@ -12,7 +12,7 @@
       <Value Profile="(Default)">us</Value>
     </Setting>
     <Setting Name="TemperatureUnit" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Farenheit</Value>
+      <Value Profile="(Default)">Fahrenheit</Value>
     </Setting>
     <Setting Name="VoiceName" Type="System.String" Scope="User">
       <Value Profile="(Default)">CereVoice Sarah - English (England)</Value>

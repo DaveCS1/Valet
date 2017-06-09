@@ -71,15 +71,15 @@ namespace Engine.Services
                     new WeatherForecast
                     {
                         TemperatureCurrent =
-                            unit == TemperatureUnit.Farenheit
+                            unit == TemperatureUnit.Fahrenheit
                                 ? KelvinToFarenheit(currentTemperatureKelvin)
                                 : KelvinToCelsius(currentTemperatureKelvin),
                         TemperatureMinimum =
-                            unit == TemperatureUnit.Farenheit
+                            unit == TemperatureUnit.Fahrenheit
                                 ? KelvinToFarenheit(minTemperatureKelvin)
                                 : KelvinToCelsius(minTemperatureKelvin),
                         TemperatureMaximum =
-                            unit == TemperatureUnit.Farenheit
+                            unit == TemperatureUnit.Fahrenheit
                                 ? KelvinToFarenheit(maxTemperatureKelvin)
                                 : KelvinToCelsius(maxTemperatureKelvin)
                     };
