@@ -42,6 +42,9 @@ namespace Engine.Services
         private static WeatherForecast RetrieveCurrentWeatherForecast(
             string postalCode, string countryCode, TemperatureUnit unit)
         {
+            // If we retrieved this data in the last five minutes,
+            // use the previsouly-retrieved values.
+            // This is so we don't hit any request limits for the API.
             if(_latestCurrentWeatherForecast != null)
             {
                 if((DateTime.Now - _latestTimeRetrieved).TotalMinutes < 5)
