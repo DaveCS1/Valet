@@ -307,3 +307,5 @@ $RECYCLE.BIN/
 
 #NDepend
 NDependOut/*
+*.ndproj
+*.ndproj

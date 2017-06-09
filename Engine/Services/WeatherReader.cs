@@ -2,6 +2,7 @@
 using System.Net;
 using System.Xml;
 using Engine.Models;
+using Engine.Resources;
 using Engine.Utilities;
 
 namespace Engine.Services
@@ -14,24 +15,43 @@ namespace Engine.Services
         private const string OWM_FORECAST_WEATHER_URL =
             @"http://api.openweathermap.org/data/2.5/forecast?zip={0},{1}&appid={2}&mode=xml";
 
-        private static DateTime _lastTimeRead;
-        private static WeatherForecast _lastForecast;
+        private static DateTime _latestTimeRetrieved;
+        private static WeatherForecast _latestCurrentWeatherForecast;
 
-        public static WeatherForecast GetCurrentForecast(
-            string zipCode, string countryCode, TemperatureUnit unit)
+        public static string GetCurrentForecast(
+            string postalCode, string countryCode, TemperatureUnit unit)
         {
-            if(_lastForecast != null)
-            {
-                TimeSpan span = DateTime.Now - _lastTimeRead;
+            WeatherForecast weatherForecast =
+                RetrieveCurrentWeatherForecast(postalCode, countryCode, unit);
 
-                if(span.TotalMinutes < 5)
+            return string.Format(Literals.Weather_CurrentTemperature,
+                                 (int)weatherForecast.TemperatureCurrent);
+        }
+
+        public static string GetTodaysLowAndHighTemperatures(
+            string postalCode, string countryCode, TemperatureUnit unit)
+        {
+            WeatherForecast weatherForecast =
+                RetrieveCurrentWeatherForecast(postalCode, countryCode, unit);
+
+            return string.Format(Literals.Weather_LowHighTemperatures,
+                                 (int)weatherForecast.TemperatureMinimum,
+                                 (int)weatherForecast.TemperatureMaximum);
+        }
+
+        private static WeatherForecast RetrieveCurrentWeatherForecast(
+            string postalCode, string countryCode, TemperatureUnit unit)
+        {
+            if(_latestCurrentWeatherForecast != null)
+            {
+                if((DateTime.Now - _latestTimeRetrieved).TotalMinutes < 5)
                 {
-                    return _lastForecast;
+                    return _latestCurrentWeatherForecast;
                 }
             }
 
             string url = OWM_CURRENT_WEATHER_URL
-                .Replace("{0}", zipCode)
+                .Replace("{0}", postalCode)
                 .Replace("{1}", countryCode)
                 .Replace("{2}", Application.Default.OWMAPIKey);
 
@@ -44,7 +64,7 @@ namespace Engine.Services
                 decimal minTemperatureKelvin = weatherXML.AttributeAsDecimal("/current/temperature/@min");
                 decimal maxTemperatureKelvin = weatherXML.AttributeAsDecimal("/current/temperature/@max");
 
-                WeatherForecast currentWeatherForecast =
+                WeatherForecast weatherForecast =
                     new WeatherForecast
                     {
                         TemperatureCurrent =
@@ -61,10 +81,10 @@ namespace Engine.Services
                                 : KelvinToCelsius(maxTemperatureKelvin)
                     };
 
-                _lastTimeRead = DateTime.Now;
-                _lastForecast = currentWeatherForecast;
+                _latestTimeRetrieved = DateTime.Now;
+                _latestCurrentWeatherForecast = weatherForecast;
 
-                return currentWeatherForecast;
+                return weatherForecast;
             }
         }
 

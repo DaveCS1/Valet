@@ -4,7 +4,6 @@ using System.Linq;
 using System.Speech.Synthesis;
 using System.Windows;
 using Engine;
-using Engine.Models;
 using Engine.Services;
 using Engine.Utilities;
 
@@ -56,21 +55,54 @@ namespace Valet
             _speechSynthesizer.Volume = Settings.Default.VoiceVolume;
         }
 
-        private void Speak_OnClick(object sender, RoutedEventArgs e)
+        private void Greeting_OnClick(object sender, RoutedEventArgs e)
         {
-            WeatherForecast weatherForecast =
-                WeatherReader.GetCurrentForecast(Settings.Default.PostalCode,
-                                                 Settings.Default.CountryCode,
-                                                 (TemperatureUnit)Enum.Parse(typeof(TemperatureUnit),
-                                                                             Settings.Default.TemperatureUnit));
+            SpeakGreeting();
+        }
 
-            _speechSynthesizer.SpeakAsync(GreetingBuilder.GetCurrentGreetingFor(Settings.Default.UserName));
+        private void CurrentTemperature_OnClick(object sender, RoutedEventArgs e)
+        {
+            SpeakCurrentTemperature();
+        }
 
-            _speechSynthesizer.SpeakAsync(string.Format("The current temperature is {0} degrees.",
-                                                        (int)weatherForecast.TemperatureCurrent));
-            _speechSynthesizer.SpeakAsync(string.Format("Today's low will be {0}, and the high will be {1}.",
-                                                        (int)weatherForecast.TemperatureMinimum,
-                                                        (int)weatherForecast.TemperatureMaximum));
+        private void TodaysLowAndHighTemperatures_OnClick(object sender, RoutedEventArgs e)
+        {
+            SpeakTodaysLowAndHighTemperatures();
+        }
+
+        private void CompleteStatus_OnClick(object sender, RoutedEventArgs e)
+        {
+            SpeakGreeting();
+            SpeakCurrentTemperature();
+            SpeakTodaysLowAndHighTemperatures();
+        }
+
+        private void SpeakGreeting()
+        {
+            Speak(GreetingBuilder.GetCurrentGreetingFor(Settings.Default.UserName));
+        }
+
+        private void SpeakCurrentTemperature()
+        {
+            Speak(WeatherReader.GetCurrentForecast(Settings.Default.PostalCode,
+                                                   Settings.Default.CountryCode,
+                                                   (TemperatureUnit)
+                                                   Enum.Parse(typeof(TemperatureUnit),
+                                                              Settings.Default.TemperatureUnit)));
+        }
+
+        private void SpeakTodaysLowAndHighTemperatures()
+        {
+            Speak(WeatherReader.GetTodaysLowAndHighTemperatures(Settings.Default.PostalCode,
+                                                                Settings.Default.CountryCode,
+                                                                (TemperatureUnit)
+                                                                Enum.Parse(typeof(TemperatureUnit),
+                                                                           Settings.Default.TemperatureUnit)));
+        }
+
+        private void Speak(string message)
+        {
+            _speechSynthesizer.SpeakAsync(message);
         }
     }
 }

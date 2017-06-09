@@ -61,7 +61,7 @@ namespace Engine.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Good afternoon {0}.
+        ///   Looks up a localized string similar to Good afternoon {0}..
         /// </summary>
         public static string Greeting_Afternoon {
             get {
@@ -70,7 +70,7 @@ namespace Engine.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Good evening {0}.
+        ///   Looks up a localized string similar to Good evening {0}..
         /// </summary>
         public static string Greeting_Evening {
             get {
@@ -79,7 +79,7 @@ namespace Engine.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello {0}.
+        ///   Looks up a localized string similar to Hello {0}..
         /// </summary>
         public static string Greeting_General {
             get {
@@ -88,11 +88,29 @@ namespace Engine.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Good morning {0}.
+        ///   Looks up a localized string similar to Good morning {0}..
         /// </summary>
         public static string Greeting_Morning {
             get {
                 return ResourceManager.GetString("Greeting_Morning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The current temperature is {0} degrees..
+        /// </summary>
+        public static string Weather_CurrentTemperature {
+            get {
+                return ResourceManager.GetString("Weather_CurrentTemperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Today&apos;s low will be {0}, and the high will be {1}..
+        /// </summary>
+        public static string Weather_LowHighTemperatures {
+            get {
+                return ResourceManager.GetString("Weather_LowHighTemperatures", resourceCulture);
             }
         }
     }

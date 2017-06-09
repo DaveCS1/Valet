@@ -37,7 +37,7 @@ namespace Valet {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12345")]
+        [global::System.Configuration.DefaultSettingValueAttribute("77001")]
         public string PostalCode {
             get {
                 return ((string)(this["PostalCode"]));

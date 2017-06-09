@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Scott</Value>
     </Setting>
     <Setting Name="PostalCode" Type="System.String" Scope="User">
-      <Value Profile="(Default)">12345</Value>
+      <Value Profile="(Default)">77001</Value>
     </Setting>
     <Setting Name="CountryCode" Type="System.String" Scope="User">
       <Value Profile="(Default)">us</Value>

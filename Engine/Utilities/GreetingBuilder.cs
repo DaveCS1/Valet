@@ -3,7 +3,7 @@ using Engine.Resources;
 
 namespace Engine.Utilities
 {
-    public class GreetingBuilder
+    public static class GreetingBuilder
     {
         public static string GetCurrentGreetingFor(string name)
         {

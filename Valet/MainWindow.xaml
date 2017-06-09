@@ -3,13 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Valet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="My Valet" Height="350" Width="525">
 
-    <Grid>
+    <Grid Margin="10">
         
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
@@ -18,9 +20,24 @@
         </Grid.ColumnDefinitions>
         
         <Button Grid.Row="0" Grid.Column="0"
-                Content="Speak"
-                Click="Speak_OnClick"/>
-        
+                Margin="3" Padding="3"
+                Content="Greeting"
+                Click="Greeting_OnClick"/>
+
+        <Button Grid.Row="1" Grid.Column="0"
+                Margin="3" Padding="3"
+                Content="Current temperature"
+                Click="CurrentTemperature_OnClick"/>
+
+        <Button Grid.Row="2" Grid.Column="0"
+                Margin="3" Padding="3"
+                Content="Today's low and high temperatures"
+                Click="TodaysLowAndHighTemperatures_OnClick"/>
+
+        <Button Grid.Row="3" Grid.Column="0"
+                Margin="3" Padding="3"
+                Content="Compete Status"
+                Click="CompleteStatus_OnClick"/>
     </Grid>
     
 </Window>

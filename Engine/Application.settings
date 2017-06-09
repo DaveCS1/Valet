@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="OWMAPIKey" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Get your own key at https://openweathermap.org/api</Value>
     </Setting>
   </Settings>
 </SettingsFile>

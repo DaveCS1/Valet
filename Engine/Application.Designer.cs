@@ -25,7 +25,7 @@ namespace Engine {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Get your own key at https://openweathermap.org/api")]
         public string OWMAPIKey {
             get {
                 return ((string)(this["OWMAPIKey"]));
